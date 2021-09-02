@@ -48,9 +48,9 @@ RUN             git clone https://github.com/sx-aurora-dev/llvm-lnt.git -b hpce/
 RUN             . /opt/rh/gcc-toolset-10/enable ; \
                 python3.9 /tmp/lnt/setup.py install
 
+ADD             docker_run_worker.sh /opt/docker_run_worker.sh
 # Switch to new 'worker' user
-RUN             useradd -m worker
-# RUN             su worker
-# ADD             docker_run_worker.sh /opt/docker_run_worker.sh
-
+RUN             groupadd -r buildbot && useradd -m -g buildbot worker
+USER            worker
+ENTRYPOINT      ["/opt/docker_run_worker.sh"]
 # CMD             ["/bin/bash"]
