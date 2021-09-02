@@ -1,12 +1,6 @@
 FROM            efocht/ve-base-dev:veos2.8.3
 MAINTAINER      efocht
 
-ARG             host_proxy
-ENV             http_proxy=http://$host_proxy
-ENV             https_proxy=http://$host_proxy
-ENV             ftp_proxy=ftp://$host_proxy
-ENV             no_proxy=localhost,127.0.0.1
-
 # Install llvm-lit (shim for lit.main)
 ADD             llvm-lit /usr/bin/llvm-lit
 
