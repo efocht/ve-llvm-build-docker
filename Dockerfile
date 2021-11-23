@@ -1,4 +1,4 @@
-FROM            efocht/ve-base-dev:veos2.8.3
+FROM            efocht/ve-base-dev:veos2.9.1
 MAINTAINER      efocht
 
 # Install llvm-lit (shim for lit.main)
