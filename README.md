@@ -3,12 +3,12 @@
 ## Build
 
 ```
-docker build --network host --tag efocht/ve-llvm-build:veos2.9.1 .
-docker image tag efocht/ve-llvm-build:veos2.9.1 efocht/ve-llvm-build:latest
+docker build --network host --tag efocht/ve-llvm-build:veos2.11.1 .
+docker image tag efocht/ve-llvm-build:veos2.11.1 efocht/ve-llvm-build:latest
 ```
 ## Push to docker hub
 ```
-docker push efocht/ve-llvm-build:veos2.9.1
+docker push efocht/ve-llvm-build:veos2.11.1
 docker push efocht/ve-llvm-build:latest
 ```
 

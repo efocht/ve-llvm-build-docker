@@ -1,4 +1,4 @@
-FROM            efocht/ve-base-dev:veos2.9.1
+FROM            efocht/ve-base-dev:veos2.11.1
 MAINTAINER      efocht
 
 # Install llvm-lit (shim for lit.main)
@@ -34,8 +34,10 @@ RUN             chmod +x /usr/bin/llvm-lit
 #                 cp bin/llvm-lit /usr/bin/llvm-lit ; \
 #                 rm -rf /tmp/llvm-project build_llvm
 
-# Install buildbot
-RUN             pip3.9 install buildbot[bundle] lit psutil
+# Install buildbot and rpm-build, create writable directory for rpm target builds
+RUN             pip3.9 install buildbot[bundle] lit psutil; \
+                yum -y install rpm-build ; \
+                mkdir /usr/local/ve; chmod 1777 /usr/local/ve
 
 # Install lnt
 RUN             git clone https://github.com/sx-aurora-dev/llvm-lnt.git -b hpce/develop /tmp/lnt
